@@ -1,2 +1,2 @@
 all :
-	cc *.c pshockg/*.c -L ./minilibx_macos -lmlx -framework OpenGL -framework AppKit -L ./pshockl -lft
+	cc *.c -L ./minilibx_macos -l mlx -framework OpenGL -framework AppKit
