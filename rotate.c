@@ -60,14 +60,11 @@ t_point **rotate(t_point **old, t_wind *w)
         newX[i] = get_rotX(old[i], w->Xangle);
         newY[i] = get_rotY(newX[i], w->Yangle);
         newZ[i] = get_rotZ(newY[i], w->Zangle);
+	printf("ROTPoint x = %f z = %f y = %f\n", newZ[i]->x, newZ[i]->z, newZ[i]->y);
         i++;
     }
     newZ[i] = NULL;
-    i = 0;
-    while (newZ[i])
-    {
-        printf("ROTPoint x = %f z = %f y = %f\n", newZ[i]->x, newZ[i]->z, newZ[i]->y);
-        i++;
-    }
+    mem_free_p(newX);
+    mem_free_p(newY);
     return (newZ);
 }

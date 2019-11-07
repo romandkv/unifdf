@@ -12,8 +12,8 @@ static t_vector *make_new(t_point *i1, t_point *i2)
 
 t_vector **make_vec(t_point **in, int x, int z)
 {
-	int			i;
-	int			c;
+	int		i;
+	int		c;
 	t_vector	**o;
 
 	c = 0;
@@ -40,12 +40,5 @@ t_vector **make_vec(t_point **in, int x, int z)
 		i++;
 	}
 	o[c] = NULL;
-	//i = 0;
-
-	//while (o[i])
-	//{
-		//printf("VEC (%f, %f) -> (%f, %f)\n", o[i]->begin.x, o[i]->begin.y, o[i]->end.x, o[i]->end.y);
-		//i++;
-	//}
 	return (o);
 }

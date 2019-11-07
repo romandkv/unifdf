@@ -9,19 +9,15 @@ static void	normalize(t_point **p, int x, int z, int y)
 	{
 		if ((int)x != 0)
 		{
-            p[i]->x /= x;
-            p[i]->x -= 0.5;
-        }
+			p[i]->x /= x;
+        		p[i]->x -= 0.5;
+        	}
 		if ((int)y != 0) {
-            p[i]->y /= y;
-            p[i]->y -= 1;
-            printf("======================================jopa======================================");
-        }
+        		p[i]->y /= y;
+			p[i]->y -= 0.5;
+        	}
 		if ((int)z != 0)
-		{
-            p[i]->z /= z;
-            p[i]->z -= 0.5;
-        }
+			p[i]->z /= z;
 		printf("NORMPoint x = %f z = %f y = %f\n", p[i]->x, p[i]->z, p[i]->y);
 		i++;
 	}
@@ -46,11 +42,11 @@ t_point		**get_points(int **array, int x, int z)
 		while (j < z)
 		{
 			p[c] = (t_point *)malloc(sizeof(t_point));
-			if (max < (array[i][j]))
-				max = (array[i][j]);
-			p[c]->x = i;
-			p[c]->y = array[i][j];
-			p[c]->z = j;
+			if (max < abs(array[i][j]))
+				max = abs(array[i][j]);
+			p[c]->x = j;
+			p[c]->y = i;
+			p[c]->z = -array[i][j];
 			printf("Point x = %f z = %f y = %f\n", p[c]->x, p[c]->z, p[c]->y);
 			c++;
 			j++;
