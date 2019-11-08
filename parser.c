@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-static void	normalize(t_point **p, int x, int z, int y)
+static void	normalize(t_point **p, int x, int y, int z)
 {
 	int i;
 
@@ -18,13 +18,13 @@ static void	normalize(t_point **p, int x, int z, int y)
         	}
 		if ((int)z != 0)
 			p[i]->z /= z;
-		printf("NORMPoint x = %f z = %f y = %f\n", p[i]->x, p[i]->z, p[i]->y);
+		printf("NORMPoint x = %f z = %f y = %f color = %d\n", p[i]->x, p[i]->z, p[i]->y, p[i]->color);
 		i++;
 	}
 	printf("ENDNORMALIZE\n");
 }
 
-t_point		**get_points(int **array, int x, int z)
+t_point		**get_points(int **array, int x, int y)
 {
 	int	i;
 	int	j;
@@ -32,20 +32,20 @@ t_point		**get_points(int **array, int x, int z)
 	int	max;
 	t_point	**p;
 
-	p = (t_point **)malloc(sizeof(t_point *) * x * z + sizeof(NULL));
+	p = (t_point **)malloc(sizeof(t_point *) * x * y + sizeof(NULL));
 	i = 0;
 	j = 0;
 	c = 0;
 	max = 0;
 	while (i < x)
 	{
-		while (j < z)
+		while (j < y)
 		{
 			p[c] = (t_point *)malloc(sizeof(t_point));
 			if (max < abs(array[i][j]))
 				max = abs(array[i][j]);
-			p[c]->x = j;
-			p[c]->y = i;
+			p[c]->x = i;
+			p[c]->y = j;
 			p[c]->z = -array[i][j];
 			printf("Point x = %f z = %f y = %f\n", p[c]->x, p[c]->z, p[c]->y);
 			c++;
@@ -55,6 +55,7 @@ t_point		**get_points(int **array, int x, int z)
 		i++;
 	}
 	p[c] = NULL;
-	normalize(p, x - 1, z - 1, max);
+	set_colors(p, max);
+	normalize(p, x - 1, y - 1, max);
 	return (p);
 }

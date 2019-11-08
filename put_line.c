@@ -1,18 +1,19 @@
 #include "fdf.h"
 
 void line(t_vector *v, t_wind *win) {
-	int w = v->end.x - v->begin.x ;
-	int h = v->end.y - v->begin.y ;
-	int x;
-	int y;
-	int i;
-	int numerator;
-	int longest;
-	int shortest;
-	int dx1 = 0, 
-	    dy1 = 0, 
-	    dx2 = 0, 
-	    dy2 = 0;
+	int 	w = v->end.x - v->begin.x ;
+	int 	h = v->end.y - v->begin.y ;
+	int 	x;
+	int 	y;
+	int 	i;
+	int 	numerator;
+	int 	longest;
+	int 	shortest;
+	int 	dx1 = 0, 
+	    	dy1 = 0, 
+	    	dx2 = 0, 
+	    	dy2 = 0;
+	t_point delta;
 
 	if (w < 0) 
 		dx1 = -1;
@@ -26,8 +27,10 @@ void line(t_vector *v, t_wind *win) {
 	       	dx2 = -1;
        	else if (w > 0)
 	       	dx2 = 1;
-	longest = abs(w) ;
-	shortest = abs(h) ;
+	longest = abs(w);
+	shortest = abs(h);
+	delta.x = w;
+	delta.y = h;
 	if (!(longest > shortest))
 	{
 		longest = abs(h);
@@ -44,7 +47,7 @@ void line(t_vector *v, t_wind *win) {
 	i = 0;
 	while (i <= longest) 
 	{
-		mlx_pixel_put(win->mlx_ptr, win->mlx_win, x, y, 0xFBEEE6);
+		mlx_pixel_put(win->mlx_ptr, win->mlx_win, x, y, get_color(x, y, v->begin, v->end, delta));
 		numerator += shortest ;
         
 		if (!(numerator<longest)) 
