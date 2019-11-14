@@ -31,8 +31,6 @@ typedef	struct		s_camera
 	float		scale;
 	float		aspect_ratio;
 	float		tang;
-	float		znear;
-	float		zfar;
 	float		angleX;
 	float		angleY;
 	float		angleZ;

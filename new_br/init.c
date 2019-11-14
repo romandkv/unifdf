@@ -7,13 +7,11 @@ t_camera	create_cam()
 	cam.x_pro = 0;
 	cam.y_pro = 0;
 	cam.tetha = 90;
-	cam.z_near = -0.1;
-	cam.z_far = 1000;
 	cam.angleX = 0;
 	cam.angleY = 0;
 	cam.angleZ = 0;
 	cam.tang = (float)1.0f / tanf(tetha / 2 / 180 * 3.14159);
-	can.scale = 0.001;
+	cam.scale = 0.001;
 	return (cam);
 }
 
