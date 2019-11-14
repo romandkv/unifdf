@@ -9,6 +9,8 @@ void	project(t_point *t, t_mlx *w)
 		t->x /= z;
 		t->y /= z;		
 	}
+	t->x *= w->cam.scale;
+	t->y *= w->cam.scale;
 }
 
 void	project_all(t_point *t, t_mlx *w)
