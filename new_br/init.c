@@ -31,5 +31,7 @@ t_mlx	*create_win(int *ar, int x, int y)
 		&m->image.sizeline, &m->image.endian);
 	m->cam = create_cam();
 	m->cam = get_points(ar, x, y);
+	m->xsize = x;
+	m->ysize = y;
 	return (m);
 }

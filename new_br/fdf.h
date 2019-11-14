@@ -53,6 +53,8 @@ typedef struct		s_mlx
 	t_camera	cam;
 	t_point		*points;
 	t_point		*propoints;
-}
+	int		xsize;
+	int		ysize;
+}			t_mlx;
 
 #endif
