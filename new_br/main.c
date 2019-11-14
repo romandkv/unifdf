@@ -38,12 +38,16 @@ static int	**get_ar(t_list *t)
 
 int	main(int argc, char **argv)
 {
-	int **ar;
-	int fd;
+	int	**ar;
+	int	fd;
+	t_mlx	*w;
 
 	if (argc != 2)
 		return (ARGS_ER);
 	if (!(fd = open(argv[1], O_RDONLY)))
 		return (OPEN_ER);
 	ar = get_map(fd);
+	w = init(ar);
+	action(w);
+	mlx_loop();
 }

@@ -1,6 +1,20 @@
 #include "fdf.h"
 
-void	line_draw(t_point begin, int longest, int shortest, int d[4])
+void	put_pixel(int x, int y, int color, t_mlx *w)
+{
+	int i;
+
+	if (x < 0 || y < 0 || x > WIDTH || y > HEIGHT)
+	{
+		i = (x * w->image.bpp / 8) + (y * w->image.size_line);
+		w->image.data[i] = color;
+		w->image.data[++i] = color >> 8;
+		w->image.data[++i] = color >> 16;
+		w->image.data[++i] = 0;
+	}
+}
+
+void	line_draw(t_point begin, int longest, int shortest, int d[4], t_mlx *w)
 {
 	int numerator;
 	int i;
@@ -13,8 +27,8 @@ void	line_draw(t_point begin, int longest, int shortest, int d[4])
 	i = 0;
         while (i <= longest)
         {
-                numerator += shortest ;
-
+		put_pixel(x, y, color, w);
+                numerator += shortest;
                 if (!(numerator<longest))
                 {
                         numerator -= longest;
@@ -46,7 +60,7 @@ void init(t_point begin, t_point end, int *d)
                 d[2] = 1;
 }
 
-void line(t_point begin, t_point end, t_wind *win)
+void line(t_point begin, t_point end, t_wind *w)
 {
 	int 	i;
 	int 	longest;

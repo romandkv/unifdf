@@ -15,11 +15,12 @@ void	put_line(t_point *t, t_mlx *w)
 		}
 	}
 	i = 0;
-	while (t[i])
+	while (propoints[i])
 	{
 		if (!t[i + w->xsize])
 			break ;
 		line(t[i], t[i + w->xsize]);
 		i++;
 	}
+	free(t);
 }

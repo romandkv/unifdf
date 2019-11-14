@@ -1,11 +1,12 @@
 #include "fdf.h"
 
-t_list	*new_list(int *ar)
+t_list	*new_list(int *ar, int size)
 {
 	t_list	*new;
 
 	new = (t_list *)malloc(sizeof(t_list));
 	new->num = ar;
+	new->xsize = size;
 	new->next = NULL;
 	return (new);
 }

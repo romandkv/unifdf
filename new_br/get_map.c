@@ -34,7 +34,7 @@ int		get_map(int fd)
 
 	get_next_line(fd, &buff);
 	split = ft_strsplit(buff);
-	temp = new_list(str_parse(split));
+	temp = new_list(str_parse(split), buff_len(split));
 	res = temp;
 	free(buff);
 	free(split);

@@ -8,11 +8,14 @@
 
 #define WIDTH 700
 #define HEIGHT 700
+#define BACKGROUND 0x222222
 
 typedef struct		s_list
 {
 	int		*num;
 	struct s_list	*next;
+	int		x_size;
+	int		y_size;
 }			t_list;
 
 typedef struct		s_point
