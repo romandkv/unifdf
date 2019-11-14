@@ -1,6 +1,8 @@
 #include "fdf.h"
 
-void line(t_vector *v, t_wind *win) {
+
+void line(t_vector *v, t_wind *win) 
+{
 	int 	w = v->end.x - v->begin.x ;
 	int 	h = v->end.y - v->begin.y ;
 	int 	x;
@@ -47,9 +49,7 @@ void line(t_vector *v, t_wind *win) {
 	i = 0;
 	while (i <= longest) 
 	{
-		mlx_pixel_put(win->mlx_ptr, win->mlx_win, x, y, get_color(x, y, v->begin, v->end, delta));
 		numerator += shortest ;
-        
 		if (!(numerator<longest)) 
 		{
 		    	numerator -= longest;
