@@ -13,10 +13,11 @@ t_camera	create_cam()
 	cam.angleY = 0;
 	cam.angleZ = 0;
 	cam.tang = (float)1.0f / tanf(tetha / 2 / 180 * 3.14159);
-	can.scale = 0.001;	
+	can.scale = 0.001;
+	return (cam);
 }
 
-t_mlx	*create_win()
+t_mlx	*create_win(int *ar, int x, int y)
 {
 	t_mlx *m;
 
@@ -30,5 +31,7 @@ t_mlx	*create_win()
 		return (NULL);	
 	m->image.data = mlx_get_data_addr(m->image.image, &m->image.bpp,
 		&m->image.sizeline, &m->image.endian);
+	m->cam = create_cam();
+	m->cam = get_points(ar, x, y);
 	return (m);
 }
