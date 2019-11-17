@@ -27,6 +27,7 @@ int mouse_press(int button, int x, int y, void *param)
     if (button == 5)
         w->cam.scale += 0.0005;
     action(w);
+	return (0);
 }
 
 int mouse_release(int button, int x, int y, void *param)
@@ -40,6 +41,7 @@ int mouse_release(int button, int x, int y, void *param)
         w->mouse.right_click = 0;
     if (button == 3)
         w->mouse.wheel_click = 0;
+	return (0);
 }
 
 
@@ -48,7 +50,8 @@ int mouse_move(int x, int y, void *param)
     t_mlx *w;
 
     w = (t_mlx *)param;
-    if (w->mouse.left_click) {
+    if (w->mouse.left_click) 
+	{
         w->cam.x_pro += (x - w->mouse.oldx);
         w->cam.y_pro += (y - w->mouse.oldy);
         w->mouse.oldy = y;
@@ -67,4 +70,5 @@ int mouse_move(int x, int y, void *param)
         w->mouse.oldx = x;
     }
     action(w);
+	return (0);
 }

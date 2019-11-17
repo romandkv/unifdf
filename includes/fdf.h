@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <mlx.h>
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 #define WIDTH 1000
 #define HEIGHT 1000
@@ -90,7 +90,7 @@ void	bresenham_line(t_point begin, t_point end, t_mlx *w);
 t_list	*get_map(int fd);
 int		get_next_line(const int fd, char **line);
 int	    get_color(int x, int y, t_point start, t_point end);
-t_mlx	*create_win(int *ar, int x, int y);
+t_mlx	*create_win(int **ar, int x, int y);
 t_point	*get_points(int **ar, int x, int y, t_mlx *w);
 void	project_all(t_point *t, t_mlx *w);
 void	put_line(t_point *t, t_mlx *w);

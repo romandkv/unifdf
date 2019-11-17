@@ -57,7 +57,7 @@ t_list		*get_map(int fd)
 		split = ft_strsplit(buff, ' ');
         res->next = push(res, str_parse(split));
         if (temp->x_size != buff_len(split))
-            return MAP_ER;
+            return (NULL);
         res = res->next;
         clear(split);
 		free(buff);

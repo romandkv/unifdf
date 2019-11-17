@@ -53,7 +53,7 @@ t_mouse create_mouse()
 }
 
 
-t_mlx	*create_win(int *ar, int x, int y)
+t_mlx	*create_win(int **ar, int x, int y)
 {
 	t_mlx *m;
 

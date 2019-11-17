@@ -30,13 +30,6 @@ static int	**get_ar(t_list *t, int *x, int *y)
 	while (res)
 	{
 		ar[i] = res->num;
-        int j = 0;
-        while (j < 19)
-        {
-            printf("%d ", ar[i][j]);
-            j++;
-        }
-        printf("\n");
 		i++;
 		res = res->next;
 	}
@@ -51,12 +44,14 @@ int	main(int argc, char **argv)
 	int	fd;
 	t_mlx	*w;
 	int     d[2];
+	t_list *t;
 
-	//if (argc != 2)
-	//	return (ARGS_ER);
-	if (!(fd = open("maps/t2.fdf", O_RDONLY)))
+	if (argc != 2)
+		return (ARGS_ER);
+	if (!(fd = open(argv[1], O_RDONLY)))
 		return (OPEN_ER);
-	t_list *t = get_map(fd);
+	if (!(t = get_map(fd)))
+			return (0);
 	ar = get_ar(t, &d[0], &d[1]);
 	w = create_win(ar, d[0], d[1]);
 	action(w);
