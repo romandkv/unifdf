@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/pshock/CLionProjects/untitled4
+CMAKE_SOURCE_DIR = /Users/pshock/CLionProjects/untitled
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/pshock/CLionProjects/untitled4/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/pshock/CLionProjects/untitled/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pshock/CLionProjects/untitled4/cmake-build-debug/CMakeFiles /Users/pshock/CLionProjects/untitled4/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pshock/CLionProjects/untitled/cmake-build-debug/CMakeFiles /Users/pshock/CLionProjects/untitled/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pshock/CLionProjects/untitled4/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pshock/CLionProjects/untitled/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named untitled4
+# Target rules for targets named untitled
 
 # Build rule for target.
-untitled4: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 untitled4
-.PHONY : untitled4
+untitled: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 untitled
+.PHONY : untitled
 
 # fast build rule for target.
-untitled4/fast:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/build
-.PHONY : untitled4/fast
+untitled/fast:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
+.PHONY : untitled/fast
 
 action.o: action.c.o
 
@@ -129,7 +129,7 @@ action.o: action.c.o
 
 # target to build an object file
 action.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/action.c.o
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/action.c.o
 .PHONY : action.c.o
 
 action.i: action.c.i
@@ -138,7 +138,7 @@ action.i: action.c.i
 
 # target to preprocess a source file
 action.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/action.c.i
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/action.c.i
 .PHONY : action.c.i
 
 action.s: action.c.s
@@ -147,62 +147,116 @@ action.s: action.c.s
 
 # target to generate assembly for a file
 action.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/action.c.s
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/action.c.s
 .PHONY : action.c.s
 
-events.o: events.c.o
+drawing.o: drawing.c.o
 
-.PHONY : events.o
-
-# target to build an object file
-events.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/events.c.o
-.PHONY : events.c.o
-
-events.i: events.c.i
-
-.PHONY : events.i
-
-# target to preprocess a source file
-events.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/events.c.i
-.PHONY : events.c.i
-
-events.s: events.c.s
-
-.PHONY : events.s
-
-# target to generate assembly for a file
-events.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/events.c.s
-.PHONY : events.c.s
-
-getmap.o: getmap.c.o
-
-.PHONY : getmap.o
+.PHONY : drawing.o
 
 # target to build an object file
-getmap.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/getmap.c.o
-.PHONY : getmap.c.o
+drawing.c.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/drawing.c.o
+.PHONY : drawing.c.o
 
-getmap.i: getmap.c.i
+drawing.i: drawing.c.i
 
-.PHONY : getmap.i
+.PHONY : drawing.i
 
 # target to preprocess a source file
-getmap.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/getmap.c.i
-.PHONY : getmap.c.i
+drawing.c.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/drawing.c.i
+.PHONY : drawing.c.i
 
-getmap.s: getmap.c.s
+drawing.s: drawing.c.s
 
-.PHONY : getmap.s
+.PHONY : drawing.s
 
 # target to generate assembly for a file
-getmap.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/getmap.c.s
-.PHONY : getmap.c.s
+drawing.c.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/drawing.c.s
+.PHONY : drawing.c.s
+
+get_map.o: get_map.c.o
+
+.PHONY : get_map.o
+
+# target to build an object file
+get_map.c.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/get_map.c.o
+.PHONY : get_map.c.o
+
+get_map.i: get_map.c.i
+
+.PHONY : get_map.i
+
+# target to preprocess a source file
+get_map.c.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/get_map.c.i
+.PHONY : get_map.c.i
+
+get_map.s: get_map.c.s
+
+.PHONY : get_map.s
+
+# target to generate assembly for a file
+get_map.c.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/get_map.c.s
+.PHONY : get_map.c.s
+
+get_next_line.o: get_next_line.c.o
+
+.PHONY : get_next_line.o
+
+# target to build an object file
+get_next_line.c.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/get_next_line.c.o
+.PHONY : get_next_line.c.o
+
+get_next_line.i: get_next_line.c.i
+
+.PHONY : get_next_line.i
+
+# target to preprocess a source file
+get_next_line.c.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/get_next_line.c.i
+.PHONY : get_next_line.c.i
+
+get_next_line.s: get_next_line.c.s
+
+.PHONY : get_next_line.s
+
+# target to generate assembly for a file
+get_next_line.c.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/get_next_line.c.s
+.PHONY : get_next_line.c.s
+
+gradient.o: gradient.c.o
+
+.PHONY : gradient.o
+
+# target to build an object file
+gradient.c.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/gradient.c.o
+.PHONY : gradient.c.o
+
+gradient.i: gradient.c.i
+
+.PHONY : gradient.i
+
+# target to preprocess a source file
+gradient.c.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/gradient.c.i
+.PHONY : gradient.c.i
+
+gradient.s: gradient.c.s
+
+.PHONY : gradient.s
+
+# target to generate assembly for a file
+gradient.c.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/gradient.c.s
+.PHONY : gradient.c.s
 
 init.o: init.c.o
 
@@ -210,7 +264,7 @@ init.o: init.c.o
 
 # target to build an object file
 init.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/init.c.o
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/init.c.o
 .PHONY : init.c.o
 
 init.i: init.c.i
@@ -219,7 +273,7 @@ init.i: init.c.i
 
 # target to preprocess a source file
 init.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/init.c.i
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/init.c.i
 .PHONY : init.c.i
 
 init.s: init.c.s
@@ -228,8 +282,35 @@ init.s: init.c.s
 
 # target to generate assembly for a file
 init.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/init.c.s
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/init.c.s
 .PHONY : init.c.s
+
+keyboard.o: keyboard.c.o
+
+.PHONY : keyboard.o
+
+# target to build an object file
+keyboard.c.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/keyboard.c.o
+.PHONY : keyboard.c.o
+
+keyboard.i: keyboard.c.i
+
+.PHONY : keyboard.i
+
+# target to preprocess a source file
+keyboard.c.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/keyboard.c.i
+.PHONY : keyboard.c.i
+
+keyboard.s: keyboard.c.s
+
+.PHONY : keyboard.s
+
+# target to generate assembly for a file
+keyboard.c.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/keyboard.c.s
+.PHONY : keyboard.c.s
 
 list_hand.o: list_hand.c.o
 
@@ -237,7 +318,7 @@ list_hand.o: list_hand.c.o
 
 # target to build an object file
 list_hand.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/list_hand.c.o
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/list_hand.c.o
 .PHONY : list_hand.c.o
 
 list_hand.i: list_hand.c.i
@@ -246,7 +327,7 @@ list_hand.i: list_hand.c.i
 
 # target to preprocess a source file
 list_hand.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/list_hand.c.i
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/list_hand.c.i
 .PHONY : list_hand.c.i
 
 list_hand.s: list_hand.c.s
@@ -255,7 +336,7 @@ list_hand.s: list_hand.c.s
 
 # target to generate assembly for a file
 list_hand.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/list_hand.c.s
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/list_hand.c.s
 .PHONY : list_hand.c.s
 
 main.o: main.c.o
@@ -264,7 +345,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/main.c.o
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -273,7 +354,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/main.c.i
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -282,35 +363,35 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/main.c.s
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/main.c.s
 .PHONY : main.c.s
 
-mem_free.o: mem_free.c.o
+mouse.o: mouse.c.o
 
-.PHONY : mem_free.o
+.PHONY : mouse.o
 
 # target to build an object file
-mem_free.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/mem_free.c.o
-.PHONY : mem_free.c.o
+mouse.c.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/mouse.c.o
+.PHONY : mouse.c.o
 
-mem_free.i: mem_free.c.i
+mouse.i: mouse.c.i
 
-.PHONY : mem_free.i
+.PHONY : mouse.i
 
 # target to preprocess a source file
-mem_free.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/mem_free.c.i
-.PHONY : mem_free.c.i
+mouse.c.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/mouse.c.i
+.PHONY : mouse.c.i
 
-mem_free.s: mem_free.c.s
+mouse.s: mouse.c.s
 
-.PHONY : mem_free.s
+.PHONY : mouse.s
 
 # target to generate assembly for a file
-mem_free.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/mem_free.c.s
-.PHONY : mem_free.c.s
+mouse.c.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/mouse.c.s
+.PHONY : mouse.c.s
 
 parser.o: parser.c.o
 
@@ -318,7 +399,7 @@ parser.o: parser.c.o
 
 # target to build an object file
 parser.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/parser.c.o
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/parser.c.o
 .PHONY : parser.c.o
 
 parser.i: parser.c.i
@@ -327,7 +408,7 @@ parser.i: parser.c.i
 
 # target to preprocess a source file
 parser.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/parser.c.i
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/parser.c.i
 .PHONY : parser.c.i
 
 parser.s: parser.c.s
@@ -336,7 +417,7 @@ parser.s: parser.c.s
 
 # target to generate assembly for a file
 parser.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/parser.c.s
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/parser.c.s
 .PHONY : parser.c.s
 
 projection.o: projection.c.o
@@ -345,7 +426,7 @@ projection.o: projection.c.o
 
 # target to build an object file
 projection.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/projection.c.o
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/projection.c.o
 .PHONY : projection.c.o
 
 projection.i: projection.c.i
@@ -354,7 +435,7 @@ projection.i: projection.c.i
 
 # target to preprocess a source file
 projection.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/projection.c.i
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/projection.c.i
 .PHONY : projection.c.i
 
 projection.s: projection.c.s
@@ -363,62 +444,35 @@ projection.s: projection.c.s
 
 # target to generate assembly for a file
 projection.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/projection.c.s
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/projection.c.s
 .PHONY : projection.c.s
 
-pshockg/get_next_line.o: pshockg/get_next_line.c.o
+put_lines.o: put_lines.c.o
 
-.PHONY : pshockg/get_next_line.o
-
-# target to build an object file
-pshockg/get_next_line.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/pshockg/get_next_line.c.o
-.PHONY : pshockg/get_next_line.c.o
-
-pshockg/get_next_line.i: pshockg/get_next_line.c.i
-
-.PHONY : pshockg/get_next_line.i
-
-# target to preprocess a source file
-pshockg/get_next_line.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/pshockg/get_next_line.c.i
-.PHONY : pshockg/get_next_line.c.i
-
-pshockg/get_next_line.s: pshockg/get_next_line.c.s
-
-.PHONY : pshockg/get_next_line.s
-
-# target to generate assembly for a file
-pshockg/get_next_line.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/pshockg/get_next_line.c.s
-.PHONY : pshockg/get_next_line.c.s
-
-put_line.o: put_line.c.o
-
-.PHONY : put_line.o
+.PHONY : put_lines.o
 
 # target to build an object file
-put_line.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/put_line.c.o
-.PHONY : put_line.c.o
+put_lines.c.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/put_lines.c.o
+.PHONY : put_lines.c.o
 
-put_line.i: put_line.c.i
+put_lines.i: put_lines.c.i
 
-.PHONY : put_line.i
+.PHONY : put_lines.i
 
 # target to preprocess a source file
-put_line.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/put_line.c.i
-.PHONY : put_line.c.i
+put_lines.c.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/put_lines.c.i
+.PHONY : put_lines.c.i
 
-put_line.s: put_line.c.s
+put_lines.s: put_lines.c.s
 
-.PHONY : put_line.s
+.PHONY : put_lines.s
 
 # target to generate assembly for a file
-put_line.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/put_line.c.s
-.PHONY : put_line.c.s
+put_lines.c.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/put_lines.c.s
+.PHONY : put_lines.c.s
 
 rotate.o: rotate.c.o
 
@@ -426,7 +480,7 @@ rotate.o: rotate.c.o
 
 # target to build an object file
 rotate.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/rotate.c.o
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/rotate.c.o
 .PHONY : rotate.c.o
 
 rotate.i: rotate.c.i
@@ -435,7 +489,7 @@ rotate.i: rotate.c.i
 
 # target to preprocess a source file
 rotate.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/rotate.c.i
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/rotate.c.i
 .PHONY : rotate.c.i
 
 rotate.s: rotate.c.s
@@ -444,62 +498,8 @@ rotate.s: rotate.c.s
 
 # target to generate assembly for a file
 rotate.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/rotate.c.s
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/rotate.c.s
 .PHONY : rotate.c.s
-
-strspl.o: strspl.c.o
-
-.PHONY : strspl.o
-
-# target to build an object file
-strspl.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/strspl.c.o
-.PHONY : strspl.c.o
-
-strspl.i: strspl.c.i
-
-.PHONY : strspl.i
-
-# target to preprocess a source file
-strspl.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/strspl.c.i
-.PHONY : strspl.c.i
-
-strspl.s: strspl.c.s
-
-.PHONY : strspl.s
-
-# target to generate assembly for a file
-strspl.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/strspl.c.s
-.PHONY : strspl.c.s
-
-vec_handle.o: vec_handle.c.o
-
-.PHONY : vec_handle.o
-
-# target to build an object file
-vec_handle.c.o:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/vec_handle.c.o
-.PHONY : vec_handle.c.o
-
-vec_handle.i: vec_handle.c.i
-
-.PHONY : vec_handle.i
-
-# target to preprocess a source file
-vec_handle.c.i:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/vec_handle.c.i
-.PHONY : vec_handle.c.i
-
-vec_handle.s: vec_handle.c.s
-
-.PHONY : vec_handle.s
-
-# target to generate assembly for a file
-vec_handle.c.s:
-	$(MAKE) -f CMakeFiles/untitled4.dir/build.make CMakeFiles/untitled4.dir/vec_handle.c.s
-.PHONY : vec_handle.c.s
 
 # Help Target
 help:
@@ -509,49 +509,49 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... untitled4"
+	@echo "... untitled"
 	@echo "... action.o"
 	@echo "... action.i"
 	@echo "... action.s"
-	@echo "... events.o"
-	@echo "... events.i"
-	@echo "... events.s"
-	@echo "... getmap.o"
-	@echo "... getmap.i"
-	@echo "... getmap.s"
+	@echo "... drawing.o"
+	@echo "... drawing.i"
+	@echo "... drawing.s"
+	@echo "... get_map.o"
+	@echo "... get_map.i"
+	@echo "... get_map.s"
+	@echo "... get_next_line.o"
+	@echo "... get_next_line.i"
+	@echo "... get_next_line.s"
+	@echo "... gradient.o"
+	@echo "... gradient.i"
+	@echo "... gradient.s"
 	@echo "... init.o"
 	@echo "... init.i"
 	@echo "... init.s"
+	@echo "... keyboard.o"
+	@echo "... keyboard.i"
+	@echo "... keyboard.s"
 	@echo "... list_hand.o"
 	@echo "... list_hand.i"
 	@echo "... list_hand.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... mem_free.o"
-	@echo "... mem_free.i"
-	@echo "... mem_free.s"
+	@echo "... mouse.o"
+	@echo "... mouse.i"
+	@echo "... mouse.s"
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"
 	@echo "... projection.o"
 	@echo "... projection.i"
 	@echo "... projection.s"
-	@echo "... pshockg/get_next_line.o"
-	@echo "... pshockg/get_next_line.i"
-	@echo "... pshockg/get_next_line.s"
-	@echo "... put_line.o"
-	@echo "... put_line.i"
-	@echo "... put_line.s"
+	@echo "... put_lines.o"
+	@echo "... put_lines.i"
+	@echo "... put_lines.s"
 	@echo "... rotate.o"
 	@echo "... rotate.i"
 	@echo "... rotate.s"
-	@echo "... strspl.o"
-	@echo "... strspl.i"
-	@echo "... strspl.s"
-	@echo "... vec_handle.o"
-	@echo "... vec_handle.i"
-	@echo "... vec_handle.s"
 .PHONY : help
 
 

@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/pshock/CLionProjects/untitled/errors.h
+
+/Users/pshock/CLionProjects/untitled/fdf.h
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+mlx.h
+-
+libft/libft.h
+/Users/pshock/CLionProjects/untitled/libft/libft.h
+
+/Users/pshock/CLionProjects/untitled/libft/libft.h
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+
+/Users/pshock/CLionProjects/untitled/main.c
+fcntl.h
+-
+fdf.h
+/Users/pshock/CLionProjects/untitled/fdf.h
+errors.h
+/Users/pshock/CLionProjects/untitled/errors.h
+

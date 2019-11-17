@@ -1,79 +1,99 @@
 #ifndef FDF_H
-# define FDF_H
+#define FDF_H
 
-#include <mlx.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
-#include "pshockg/get_next_line.h"
-#include "pshockl/libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <mlx.h>
+#include "libft/libft.h"
 
-#define abs(x) (x > 0 ? x : -x)
-#define DXY 20
-#define HEIGHT 1080
-#define WIDTH 1920
-#define TETHA 54
-#define ZNEAR 0.1
-#define ZFAR 1000
+#define WIDTH 1000
+#define HEIGHT 1000
+#define MENU 220
+#define BACKGROUND 0x222222
 
-typedef struct	s_point
+typedef struct		s_list
+{
+	int		*num;
+	struct s_list	*next;
+	int		x_size;
+	int		y_size;
+}			        t_list;
+
+typedef struct		s_point
 {
 	float		x;
 	float		y;
 	float		z;
-	int			color;
-}				t_point;
+	int		color;
+}			t_point;
 
-
-typedef struct	s_vector
+typedef	struct		s_camera
 {
-		t_point begin;
-		t_point end;
-		int		dx;
-		int		dy;
-}				t_vector;
+	int		x_pro;
+	int		y_pro;
+	float		tetha;
+	float		scale;
+	float		aspect_ratio;
+	float		tang;
+	float		angleX;
+	float		angleY;
+	float		angleZ;
+	float       zk;
+	int         mode;
+}			t_camera;
 
-typedef struct  s_camera
+typedef struct		s_image
 {
-    float       tetha;
-    float       x;
-    float       y;
-}               t_camera;
+	void		*image;
+	char		*data;
+	int		bpp;
+	int		size_line;
+	int		endian;
+}			t_image;
 
-typedef struct	s_wind
+typedef struct      s_mouse
 {
-	void		*mlx_ptr;
-	void		*mlx_win;
-    t_camera    *cam;
-    t_point     **points;
-    int         width;
-    int         height;
-    float       Xangle;
-    float       Yangle;
-    float       Zangle;
-}				t_wind;
+    int             oldx;
+    int             oldy;
+    int             left_click;
+    int             right_click;
+    int             wheel_click;
+}                   t_mouse;
 
-
-typedef struct      s_line
+typedef struct		s_mlx
 {
-    int             *line;
-    struct s_line   *next;
-}                   t_line;
+    t_mouse     mouse;
+    int         **col;
+	void		*mlx;
+	void		*win;
+	t_image		image;
+	t_camera	cam;
+	t_point		*points;
+	t_point		*propoints;
+	int		    xsize;
+	int		    ysize;
+	int         zsize;
+}			    t_mlx;
 
-t_wind    *init(t_wind *win);
-int     rotation(int key, void *param);
-void    action(t_wind *win);
-int	        get_size_point(t_point **t);
-int         get_size(int *in);
-void        push(int *i, t_line **t);
-t_line      *getmap(int fd);
-char		**ft_strsplit(char const *s, char c);
-void        mem_free_v(t_vector **v);
-void        mem_free_p(t_point **t);
-t_point     **rotate(t_point **old, t_wind *w);
-void		put_all(t_vector **v, t_wind *w);
-t_point		**get_points(int **array, int x, int y);
-t_point		**get_pro_point(t_point **t, t_wind *w);
-t_vector	**make_vec(t_point **in, int x, int z);
+void    draw_menu(t_mlx *w);
+int     mouse_press(int button, int x, int y, void *param);
+int     mouse_release(int button, int x, int y, void *param);
+int     mouse_move(int x, int y, void *param);
+void    colorfix(t_point **t, t_mlx *w);
+double	percent(int start, int end, int current);
+int     key_press(int keycode, void *param);
+t_list	*new_list(int *ar, int size);
+t_list	*push(t_list *t, int *ar);
+void	action(t_mlx *w);
+void	bresenham_line(t_point begin, t_point end, t_mlx *w);
+t_list	*get_map(int fd);
+int		get_next_line(const int fd, char **line);
+int	    get_color(int x, int y, t_point start, t_point end);
+t_mlx	*create_win(int *ar, int x, int y);
+t_point	*get_points(int **ar, int x, int y, t_mlx *w);
+void	project_all(t_point *t, t_mlx *w);
+void	put_line(t_point *t, t_mlx *w);
+t_point	*rotate_all(t_mlx *w);
 
 #endif

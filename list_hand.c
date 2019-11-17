@@ -1,22 +1,22 @@
 #include "fdf.h"
 
-int     get_size(int *in)
+t_list	*new_list(int *ar, int size)
 {
-    int i;
+	t_list	*new;
 
-    i = 0;
-    while (in[i])
-        i++;
-    return (i);
+	new = (t_list *)malloc(sizeof(t_list));
+	new->num = ar;
+	new->x_size = size;
+	new->next = NULL;
+	return (new);
 }
 
-void    push(int *i, t_line **t)
+t_list	*push(t_list *t, int *ar)
 {
-    t_line *new;
+	t_list *new;
 
-    new = (t_line *)malloc(sizeof(t_line));
-    new->line = (int *)malloc(get_size(i) * sizeof(int) + sizeof(NULL));
-    ft_memcpy(new->line, i, get_size(i) + 1);
-    *t = new;
-    new->next = NULL;
+	new = (t_list *)malloc(sizeof(t_list));
+	new->num = ar;
+	new->next = NULL;
+	return (new);
 }

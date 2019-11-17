@@ -1,18 +1,32 @@
 #include "fdf.h"
 
-void    action(t_wind *win)
+static void	set_back(t_mlx *w)
 {
-	mlx_clear_window(win->mlx_ptr, win->mlx_win);
-	t_point **rot = rotate(win->points, win);
-	if (win->project != NULL)
+	int i;
+	int size;
+	int *data;
+
+	data = (int *)w->image.data;
+	size = WIDTH * HEIGHT;
+	i = 0;
+	while (i < size)
 	{
-		mem_free_p(win->project);
-		win->project = get_pro_point(rot, win);
+		data[i] = (i % WIDTH < MENU) ? 0x000000 : BACKGROUND;
+        if (i % WIDTH == MENU)
+            data[i] = 0xFFFFFF;
+		i++;
 	}
-	else
-		win->project = get_pro_point(rot, win);
-	mem_free_p(rot);
-    	t_vector **v = make_vec(win->project, win->width, win->height);
-   	put_all(v, win);
-    	mem_free_v(v);
+}
+
+void	action(t_mlx *w)
+{
+	t_point *p;
+
+	mlx_clear_window(w->mlx, w->win);
+	set_back(w);
+	p = rotate_all(w);
+	project_all(p, w);
+	put_line(p, w);
+	mlx_put_image_to_window(w->mlx, w->win, w->image.image, 0, 0);
+    draw_menu(w);
 }

@@ -1,70 +1,50 @@
 #include "fdf.h"
 
-static t_point *get_rotZ(t_point *i, float tetha)
+static t_point	rotate(t_point *t, t_mlx *w)
 {
-    t_point *o;
-    float   cc;
-    float   ss;
+	t_point	new;
+	float	cc;
+	float	ss;
+	float	temp;
 
-    cc = cosf(tetha / 180.0f * 3.14159f);
-    ss = sinf(tetha / 180.0f * 3.14159f);
-    o = (t_point *)malloc(sizeof(t_point));
-    o->x = (float)(i->x * cc + i->y * ss);
-    o->y = (float)(i->y * cc - i->x * ss);
-    o->z = (float)i->z;
-    return (o);
-}
-static t_point *get_rotX(t_point *i, float tetha)
-{
-    t_point *o;
-    float   cc;
-    float   ss;
-
-    cc = cosf(tetha / 180.0f * 3.14159f);
-    ss = sinf(tetha / 180.0f * 3.14159f);
-    o = (t_point *)malloc(sizeof(t_point));
-    o->x = (float)i->x;
-    o->y = (float)i->y * cc + i->z * ss;
-    o->z = (float)i->z * cc - ss * i->y;
-    return (o);
-}
-
-static t_point *get_rotY(t_point *i, float tetha)
-{
-    t_point *o;
-    float   cc;
-    float   ss;
-
-    cc = cosf(tetha / 180.0f * 3.14159f);
-    ss = sinf(tetha / 180.0f * 3.14159f);
-    o = (t_point *)malloc(sizeof(t_point));
-    o->x = (float)i->x * cc - i->z * ss;
-    o->y = (float)i->y;
-    o->z = (float)i->x * ss + cc * i->z;
-    return (o);
+	new.color = t->color;
+	//printf("%f\n", w->cam.zk);
+	cc = cosf(w->cam.angleX / 180.0f * 3.14159f);
+	ss = sinf(w->cam.angleX / 180.0f * 3.14159f);
+	//xrot
+	new.y = (float)cc * t->y + ss * t->z * w->cam.zk;
+	new.z = (float)cc * t->z * w->cam.zk - ss * t->y;
+	new.x = t->x;
+	//yrot
+	cc = cosf(w->cam.angleY / 180.0f * 3.14159f);
+	ss = sinf(w->cam.angleY / 180.0f * 3.14159f);
+	temp = new.x;
+	new.x = (float)cc * new.x - ss * new.z;
+	new.z = (float)cc * new.z + ss * temp;
+	//zrot
+	cc = cosf(w->cam.angleZ / 180.0f * 3.14159f);
+	ss = sinf(w->cam.angleZ / 180.0f * 3.14159f);
+	temp = new.x;
+	new.x = (float)cc * new.x + ss * new.y;
+	new.y = (float)cc * new.y - ss * temp;
+	return (new);
 }
 
-t_point **rotate(t_point **old, t_wind *w)
+t_point	*rotate_all(t_mlx *w)
 {
-    int i;
-    int size = sizeof(t_point *) * get_size_point(old) + sizeof(NULL);
-    t_point **newX;
-    t_point **newY;
-    t_point **newZ;
+	t_point	*new;
+	int	i;
+	int size;
 
-    newX = (t_point **)malloc(size);
-    newY = (t_point **)malloc(size);
-    newZ = (t_point **)malloc(size);
-    i = 0;
-    while (old[i]) {
-        newX[i] = get_rotX(old[i], w->Xangle);
-        newY[i] = get_rotY(newX[i], w->Yangle);
-        newZ[i] = get_rotZ(newY[i], w->Zangle);
-	printf("ROTPoint x = %f z = %f y = %f\n", newZ[i]->x, newZ[i]->z, newZ[i]->y);
-        i++;
-    }
-    newZ[i] = NULL;
-    mem_free_p(newX);
-    mem_free_p(newY);
-    return (newZ);
+    colorfix(&w->points, w);
+	size = w->xsize * w->ysize;
+	new = (t_point *)malloc(size * sizeof(t_point));
+	i = 0;
+	while (i < size)
+	{
+		new[i] = rotate(&w->points[i], w);
+        //printf("ROT (%f, %f, %f)\n", new[i].x, new[i].y, new[i].z);
+		i++;
+	}
+	return (new);
 }

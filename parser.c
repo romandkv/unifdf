@@ -1,61 +1,82 @@
 #include "fdf.h"
+#include "color.h"
 
-static void	normalize(t_point **p, int x, int y, int z)
+static void	clear(int **ar, int y)
 {
 	int i;
 
 	i = 0;
-	while (p[i])
+	while (i < y)
 	{
-		if ((int)x != 0)
-		{
-			p[i]->x /= x;
-        		p[i]->x -= 0.5;
-        	}
-		if ((int)y != 0) {
-        		p[i]->y /= y;
-			p[i]->y -= 0.5;
-        	}
-		if ((int)z != 0)
-			p[i]->z /= z;
-		printf("NORMPoint x = %f z = %f y = %f color = %d\n", p[i]->x, p[i]->z, p[i]->y, p[i]->color);
+		free(ar[i]);
 		i++;
 	}
-	printf("ENDNORMALIZE\n");
+	free(ar);
 }
 
-t_point		**get_points(int **array, int x, int y)
-{
-	int	i;
-	int	j;
-	int	c;
-	int	max;
-	t_point	**p;
 
-	p = (t_point **)malloc(sizeof(t_point *) * x * y + sizeof(NULL));
+void    colorget(t_point *t, t_mlx *w)
+{
+    double per;
+
+    if (w->cam.mode == 4)
+        t->color = 0x00000000;
+    per = percent(0, w->zsize, abs(t->z));
+    if (per < 0.2)
+        t->color = w->col[w->cam.mode][0];
+    else if (per < 0.4)
+        t->color = w->col[w->cam.mode][1];
+    else if (per < 0.6)
+        t->color = w->col[w->cam.mode][2];
+    else if (per < 0.8)
+        t->color = w->col[w->cam.mode][3];
+    else
+        t->color = w->col[w->cam.mode][4];
+
+}
+
+
+void    colorfix(t_point **t, t_mlx *w)
+{
+    int i;
+
+    i = 0;
+    while (i < w->xsize * w->ysize)
+    {
+        colorget(&(*t)[i], w);
+        i++;
+    }
+}
+
+t_point	*get_points(int **ar, int x, int y, t_mlx *w)
+{
+	int		i;
+	int		j;
+	int		count;
+	t_point	*points;
+	int     zmax;
+
 	i = 0;
-	j = 0;
-	c = 0;
-	max = 0;
-	while (i < x)
+	zmax = 0;
+	count = 0;
+	points = (t_point *)malloc(sizeof(t_point) * x * y);
+	while (i < y)
 	{
-		while (j < y)
+		j = 0;
+		while (j < x)
 		{
-			p[c] = (t_point *)malloc(sizeof(t_point));
-			if (max < abs(array[i][j]))
-				max = abs(array[i][j]);
-			p[c]->x = i;
-			p[c]->y = j;
-			p[c]->z = -array[i][j];
-			printf("Point x = %f z = %f y = %f\n", p[c]->x, p[c]->z, p[c]->y);
-			c++;
+		    if (zmax < abs(ar[i][j]))
+		        zmax = abs(ar[i][j]);
+			points[count].x = j - x / 2;
+			points[count].y = i - y / 2;
+			points[count].z = -ar[i][j];
+			count++;
 			j++;
 		}
-		j = 0;
 		i++;
 	}
-	p[c] = NULL;
-	set_colors(p, max);
-	normalize(p, x - 1, y - 1, max);
-	return (p);
+	w->zsize = zmax;
+    //norm(&points, zmax, x * y);
+	clear(ar, y);
+	return (points);
 }
