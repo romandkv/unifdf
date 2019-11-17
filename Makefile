@@ -1,2 +1,12 @@
+FLAGS = -framework OpenGL -framework AppKit
+SRC = src/*.c
+INC = -I includes/
+LIB = -L ./minilibx_macos -l mlx $(FLAGS) -L libft/ -lft
+
 all :
-	cc  -I includes/ src/*.c -L ./minilibx_macos -l mlx -framework OpenGL -framework AppKit -L libft/ -lft -o fdf
+	cc  $(INC) $(SRC) $(LIB) -o fdf
+
+clean :
+	rm -rf fdf
+
+re :clean all
