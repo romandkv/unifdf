@@ -10,8 +10,8 @@ git clone https://github.com/romandkv/unifdf.git
 cd unifdf && make
 ```
 ## Example
-<img src="images/fdf.png">
+<img src="images/fdf.png" width="400px">
 
 ## Second example
-<img src = "images/fdfgif.gif" width="200px">
+<img src = "images/fdfgif.gif" width="400px">
 
