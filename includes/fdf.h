@@ -7,8 +7,8 @@
 #include <mlx.h>
 #include "../libft/libft.h"
 
-#define WIDTH 1000
-#define HEIGHT 1000
+#define WIDTH 1920
+#define HEIGHT 1080
 #define MENU 220
 #define BACKGROUND 0x222222
 
