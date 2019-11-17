@@ -13,5 +13,5 @@ cd unifdf && make
 <img src="images/fdf.png">
 
 ## Second example
-<img src = "images/fdfgif.gif" width="70%">
+<img src = "images/fdfgif.gif" width="200px">
 
