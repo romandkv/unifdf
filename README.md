@@ -10,6 +10,10 @@ git clone https://github.com/romandkv/unifdf.git
 cd unifdf && make
 ```
 ## Example
+
+```
+./fdf maps/t2.fdf
+```
 <img src="images/fdf.png" width="400px">
 
 ## Second example
