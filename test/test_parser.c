@@ -21,20 +21,21 @@ int	point_cmp_all(t_point *p1, t_point *p2, int size)
 	return (1);
 }
 
-void	init_ar(int x, int y, int ***ar)
+int		**init_ar(int x, int y)
 {
 	int i;
 	int j;
+	int	**ar;
 
 	i = 0;
 	j = 0;
-	*ar = (int **)malloc(sizeof(int) * y);
+	ar = (int **)malloc(sizeof(int *) * y);
 	while (i < y)
 	{
-		(*ar)[i] = (int *)malloc(sizeof(int) * x);
+		(ar)[i] = (int *)malloc(sizeof(int) * x);
 		while (j < x)
 		{
-			(*ar)[i][j] = x * y;
+			(ar)[i][j] = x * y;
 			j++;
 		}
 		j = 0;
@@ -52,7 +53,7 @@ t_point	*res_init(int **ar, int x, int y)
 	c = 0;
 	i = 0;
 	j = 0;
-	pout = (t_point *)malloc(sizeof(t_point));
+	pout = (t_point *)malloc(sizeof(t_point) * x * y);
 	while (i < y)
 	{
 		while (j < x)
@@ -60,6 +61,7 @@ t_point	*res_init(int **ar, int x, int y)
 			pout[c].x = i - x / 2;
 			pout[c].y = j - y / 2;
 			pout[c].z = -ar[i][j];
+			c++;
 			j++;
 		}
 		i++;
@@ -77,7 +79,7 @@ int	test_parser()
 	t_point	*pout;
 	t_point *res;
 	
-	init_ar(x, y, &ar);
+	ar = init_ar(x, y);
 	pout = get_points(ar, x, y, &w);
 	res = res_init(ar, x, y);
 	return (point_cmp_all(res, pout, x * y));
