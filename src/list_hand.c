@@ -1,4 +1,4 @@
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 t_list	*new_list(int *ar, int size)
 {

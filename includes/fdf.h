@@ -4,7 +4,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <mlx.h>
+//#include <mlx.h>
 #include "../libft/libft.h"
 
 #define WIDTH 1920

@@ -1,4 +1,4 @@
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 double	percent(int start, int end, int current)
 {

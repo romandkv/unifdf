@@ -1,5 +1,5 @@
-#include "fdf.h"
-#include "color.h"
+#include "../includes/fdf.h"
+#include "../includes/color.h"
 
 static void	clear(int **ar, int y)
 {
@@ -78,5 +78,6 @@ t_point	*get_points(int **ar, int x, int y, t_mlx *w)
 	w->zsize = zmax;
     //norm(&points, zmax, x * y);
 	clear(ar, y);
+
 	return (points);
 }
