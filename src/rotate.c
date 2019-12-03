@@ -1,4 +1,4 @@
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 static t_point	rotate(t_point *t, t_mlx *w)
 {

@@ -1,5 +1,5 @@
-#include "fdf.h"
-#include "color.h"
+#include "../includes/fdf.h"
+#include "../includes/color.h"
 
 static void	put_pixel(int x, int y, int color, t_mlx *w)
 {

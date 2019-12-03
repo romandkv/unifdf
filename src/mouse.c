@@ -1,4 +1,4 @@
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 int mouse_press(int button, int x, int y, void *param)
 {

@@ -1,4 +1,4 @@
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 void	put_line(t_point *t, t_mlx *w)
 {

@@ -1,6 +1,6 @@
 #include <fcntl.h>
-#include "fdf.h"
-#include "errors.h"
+#include "../includes/fdf.h"
+#include "../includes/errors.h"
 
 static int	get_len_list(t_list *t)
 {
