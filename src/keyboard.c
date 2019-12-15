@@ -1,4 +1,4 @@
-#include "../includes/df.h"
+#include "../includes/fdf.h"
 
 void dop(int keycode, t_mlx *w)
 {

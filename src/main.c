@@ -20,21 +20,21 @@ static int	get_len_list(t_list *t)
 static int	**get_ar(t_list *t, int *x, int *y)
 {
 	t_list	*res;
-	int	**ar;
-	int	i;
+	int		**ar;
+	int		i;
 
-	ar = (int *)malloc(get_len_list(t) * sizeof(t_list));
+	ar = (int **)malloc(get_len_list(t) * sizeof(t_list));
 	i = 0;
-	res = t;
 	*x = t->x_size;
-	while (res)
+	while (t)
 	{
-		ar[i] = res->num;
+		ar[i] = t->num;
 		i++;
-		res = res->next;
+		res = t->next;
+		free(t);
+		t = res;
 	}
 	*y = i;
-	free(t);
 	return (ar);
 }
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (ARGS_ER);
-	if (!(fd = open(argv[1], O_RDONLY)))
+	if ((fd = open(argv[1], O_RDONLY)) == -1)
 		return (OPEN_ER);
 	if (!(t = get_map(fd)))
 			return (0);
