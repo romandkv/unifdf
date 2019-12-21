@@ -1,4 +1,4 @@
-FLAGS = -framework OpenGL -framework AppKit
+FLAGS = -framework OpenGL -framework AppKit -Wall -Wextra -Werror
 SRC = src/*.c
 INC = -I includes/
 LIB = -L ./minilibx_macos -l mlx $(FLAGS) -L libft/ -lft

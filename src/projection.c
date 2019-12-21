@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   projection.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/21 22:33:34 by pshock            #+#    #+#             */
+/*   Updated: 2019/12/21 22:36:31 by pshock           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 static void	project(t_point *t, t_mlx *w)
@@ -5,18 +17,13 @@ static void	project(t_point *t, t_mlx *w)
 	t->z += 10;
 	t->x = (float)w->cam.aspect_ratio * w->cam.tang * t->x;
 	t->y = (float)w->cam.tang * t->y;
-	/*if (t->z != 0)
-	{
-		t->x /= t->z;
-		t->y /= t->z;
-	}*/
 	t->x *= w->cam.scale * WIDTH;
 	t->y *= w->cam.scale * HEIGHT;
 	t->x += w->cam.x_pro;
 	t->y += w->cam.y_pro;
 }
 
-void	project_all(t_point *t, t_mlx *w)
+void		project_all(t_point *t, t_mlx *w)
 {
 	int i;
 	int size;
@@ -26,7 +33,6 @@ void	project_all(t_point *t, t_mlx *w)
 	while (i < size)
 	{
 		project(&t[i], w);
-        //printf("PRO (%f, %f, %f)\n", t[i].x, t[i].y, t[i].z);
 		i++;
 	}
 }

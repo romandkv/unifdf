@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_map.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/21 20:28:05 by pshock            #+#    #+#             */
+/*   Updated: 2019/12/21 20:29:59 by pshock           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 #include "errors.h"
 
-void        clear(char **line)
+void		clear(char **line)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (line[i])
-    {
-        free(line[i]);
-        i++;
-    }
-    free(line);
+	i = 0;
+	while (line[i])
+	{
+		free(line[i]);
+		i++;
+	}
+	free(line);
 }
 
 static int	buff_len(char **buff)
@@ -51,15 +63,15 @@ t_list		*get_map(int fd)
 	temp = new_list(str_parse(split), buff_len(split));
 	res = temp;
 	free(buff);
-    clear(split);
+	clear(split);
 	while (get_next_line(fd, &buff))
 	{
 		split = ft_strsplit(buff, ' ');
-        res->next = push(res, str_parse(split));
-        if (temp->x_size != buff_len(split))
-            return (NULL);
-        res = res->next;
-        clear(split);
+		res->next = push(str_parse(split));
+		if (temp->x_size != buff_len(split))
+			return (NULL);
+		res = res->next;
+		clear(split);
 		free(buff);
 	}
 	return (temp);

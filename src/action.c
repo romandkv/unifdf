@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   action.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/21 20:20:16 by pshock            #+#    #+#             */
+/*   Updated: 2019/12/21 20:22:43 by pshock           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 static void	set_back(t_mlx *w)
@@ -12,13 +24,13 @@ static void	set_back(t_mlx *w)
 	while (i < size)
 	{
 		data[i] = (i % WIDTH < MENU) ? 0x000000 : BACKGROUND;
-        if (i % WIDTH == MENU)
-            data[i] = 0xFFFFFF;
+		if (i % WIDTH == MENU)
+			data[i] = 0xFFFFFF;
 		i++;
 	}
 }
 
-void	action(t_mlx *w)
+void		action(t_mlx *w)
 {
 	t_point *p;
 
@@ -28,5 +40,5 @@ void	action(t_mlx *w)
 	project_all(p, w);
 	put_line(p, w);
 	mlx_put_image_to_window(w->mlx, w->win, w->image.image, 0, 0);
-    draw_menu(w);
+	draw_menu(w);
 }

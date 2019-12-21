@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_hand.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/21 22:46:21 by pshock            #+#    #+#             */
+/*   Updated: 2019/12/21 22:46:25 by pshock           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 t_list	*new_list(int *ar, int size)
@@ -11,7 +23,7 @@ t_list	*new_list(int *ar, int size)
 	return (new);
 }
 
-t_list	*push(t_list *t, int *ar)
+t_list	*push(int *ar)
 {
 	t_list *new;
 
