@@ -6,7 +6,7 @@
 /*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 22:36:46 by pshock            #+#    #+#             */
-/*   Updated: 2019/12/21 23:04:44 by pshock           ###   ########.fr       */
+/*   Updated: 2019/12/22 15:01:33 by pshock           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	put_line(t_point *t, t_mlx *w)
 	int	size;
 
 	i = 0;
-	size = 0;
+	size = w->xsize * w->ysize;
 	while (i < size)
 	{
 		if (i % w->xsize == w->xsize - 1)

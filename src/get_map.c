@@ -6,7 +6,7 @@
 /*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 20:28:05 by pshock            #+#    #+#             */
-/*   Updated: 2019/12/21 20:29:59 by pshock           ###   ########.fr       */
+/*   Updated: 2019/12/22 15:14:10 by pshock           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ t_list		*get_map(int fd)
 	char	**split;
 
 	get_next_line(fd, &buff);
+	if (!*buff)
+		exit(0);
 	split = ft_strsplit(buff, ' ');
 	temp = new_list(str_parse(split), buff_len(split));
 	res = temp;

@@ -6,7 +6,7 @@
 /*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 22:44:52 by pshock            #+#    #+#             */
-/*   Updated: 2019/12/21 22:46:09 by pshock           ###   ########.fr       */
+/*   Updated: 2019/12/22 15:59:03 by pshock           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	dop(int keycode, t_mlx *w)
 		w->cam.angley -= 3;
 	if (keycode == 49)
 	{
+		w->cam.x_pro = WIDTH / 2;
+		w->cam.y_pro = HEIGHT / 2;
 		w->cam.anglex = 0;
 		w->cam.angley = 0;
 	}
@@ -59,8 +61,6 @@ int		key_press(int keycode, void *param)
 		w->cam.mode = 2;
 	if (keycode == 21)
 		w->cam.mode = 3;
-	if (keycode == 22)
-		w->cam.mode = 4;
 	action(w);
 	return (0);
 }

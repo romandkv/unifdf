@@ -1,7 +1,18 @@
-#ifndef ERRORS_H
-#define ERRORS_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/22 15:04:04 by pshock            #+#    #+#             */
+/*   Updated: 2019/12/22 15:04:13 by pshock           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#define ARGS_ER -10
-#define OPEN_ER -9
-#define MAP_ER -8
+#ifndef ERRORS_H
+# define ERRORS_H
+# define ARGS_ER -10
+# define OPEN_ER -9
+# define MAP_ER -8
 #endif

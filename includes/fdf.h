@@ -6,7 +6,7 @@
 /*   By: pshock <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 22:52:42 by pshock            #+#    #+#             */
-/*   Updated: 2019/12/21 23:09:17 by pshock           ###   ########.fr       */
+/*   Updated: 2019/12/22 15:05:44 by pshock           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,24 +86,24 @@ typedef struct		s_mlx
 	int				zsize;
 }					t_mlx;
 
-void	increm(int *j, int *count);
-void	draw_menu(t_mlx *w);
-int		mouse_press(int button, int x, int y, void *param);
-int		mouse_release(int button, int x, int y, void *param);
-int		mouse_move(int x, int y, void *param);
-void	colorfix(t_point **t, t_mlx *w);
-double	percent(int start, int end, int current);
-int		key_press(int keycode, void *param);
-t_list	*new_list(int *ar, int size);
-t_list	*push(int *ar);
-void	action(t_mlx *w);
-void	bresenham_line(t_point begin, t_point end, t_mlx *w);
-t_list	*get_map(int fd);
-int		get_next_line(const int fd, char **line);
-int		get_color(int x, int y, t_point start, t_point end);
-t_mlx	*create_win(int **ar, int x, int y);
-t_point	*get_points(int **ar, int x, int y, t_mlx *w);
-void	project_all(t_point *t, t_mlx *w);
-void	put_line(t_point *t, t_mlx *w);
-t_point	*rotate_all(t_mlx *w);
+void				increm(int *j, int *count);
+void				draw_menu(t_mlx *w);
+int					mouse_press(int button, int x, int y, void *param);
+int					mouse_release(int button, int x, int y, void *param);
+int					mouse_move(int x, int y, void *param);
+void				colorfix(t_point **t, t_mlx *w);
+double				percent(int start, int end, int current);
+int					key_press(int keycode, void *param);
+t_list				*new_list(int *ar, int size);
+t_list				*push(int *ar);
+void				action(t_mlx *w);
+void				bresenham_line(t_point begin, t_point end, t_mlx *w);
+t_list				*get_map(int fd);
+int					get_next_line(const int fd, char **line);
+int					get_color(int x, int y, t_point start, t_point end);
+t_mlx				*create_win(int **ar, int x, int y);
+t_point				*get_points(int **ar, int x, int y, t_mlx *w);
+void				project_all(t_point *t, t_mlx *w);
+void				put_line(t_point *t, t_mlx *w);
+t_point				*rotate_all(t_mlx *w);
 #endif
