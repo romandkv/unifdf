@@ -9,7 +9,7 @@ cd fdf & make
 ```
 ./fdf maps/t2.fdf
 ```
-![alt text](https://github.com/romandkv/unifdf/blob/master/images/fdf.png | size = 250x250)
+<img src="https://github.com/romandkv/unifdf/blob/master/images/fdf.png" alt="alt text" width="300" height="300">
 
 ```
 ./fdf maps/sasat.fdf
